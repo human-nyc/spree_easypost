@@ -1,7 +1,7 @@
 module Spree
   module Stock
     module EstimatorDecorator
-      def shipping_rates(package)
+      def shipping_rates(package, shipping_method_filter = ShippingMethod::DISPLAY_ON_FRONT_END)
         shipment = package.easypost_shipment
         rates = shipment.rates.sort_by { |r| r.rate.to_i }
 
