@@ -13,7 +13,8 @@ module Spree
         ::EasyPost::Shipment.create(
           to_address: order.ship_address.easypost_address,
           from_address: stock_location.easypost_address,
-          parcel: easypost_parcel
+          parcel: easypost_parcel,
+          options: { special_rates_eligibility: "USPS.MEDIAMAIL" }
         )
       end
     end
